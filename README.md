@@ -1,41 +1,17 @@
-# Oh My Term — Binary Releases
+# oh-my-term releases (RETIRED)
 
-Official binary releases for [Oh My Term](https://github.com/oh-my-term) components.
+This repository previously hosted the combined v3.86.30 release train. It is
+retired: each component now publishes in its OWN repository, tagged with that
+component's own version.
 
-## Why download from here?
+## Current release channels
 
-In a zero-trust architecture, the Oh My Term server (omts) is treated as an **untrusted relay**. Downloading omtc from the server would allow a compromised server to serve a backdoored binary. This repo provides:
+| Repo | Component | Latest anchor |
+|---|---|---|
+| [release-omts](https://github.com/oh-my-term/release-omts) | `omts` (server) | `.../release-omts/releases/latest/download/<artifact>` |
+| [release-omtc](https://github.com/oh-my-term/release-omtc) | `omtc` + `omtc-launcher` (device agent) | `.../release-omtc/releases/latest/download/metainfo.json` |
+| [release-omta](https://github.com/oh-my-term/release-omta) | `omta` (web app bundle) | `.../release-omta/releases/latest/download/omta-update.json` |
+| [release-omtn](https://github.com/oh-my-term/release-omtn) | `omtn-desktop` (desktop shell) | `.../release-omtn/releases/latest/download/<artifact>` |
 
-- **Auditable releases**: all binaries are built from tagged commits and published here
-- **SHA-256 checksums**: every release includes `checksums.sha256` for verification
-- **Public visibility**: anyone can inspect release history and checksums
-
-## Verification
-
-After downloading, verify the checksum:
-
-```bash
-# Download binary and checksum
-curl -fsSL -o omtc https://github.com/oh-my-term/releases/releases/download/v2.1.6/omtc-linux-amd64
-curl -fsSL -o checksums.sha256 https://github.com/oh-my-term/releases/releases/download/v2.1.6/checksums.sha256
-
-# Verify
-sha256sum -c checksums.sha256 --ignore-missing
-```
-
-## Available Binaries
-
-Each release includes:
-
-| Binary | Platform |
-|--------|----------|
-| `omtc-linux-amd64` | Linux x86_64 |
-| `omtc-linux-arm64` | Linux aarch64 |
-| `omtc-darwin-amd64` | macOS x86_64 |
-| `omtc-darwin-arm64` | macOS Apple Silicon |
-| `omts-linux-amd64` | Server, Linux x86_64 |
-| `checksums.sha256` | SHA-256 checksums for all binaries |
-
-## Install Script
-
-The install script (`GET https://server/i/sh`) downloads omtc from **this GitHub repo**, not from the server. The server only provides the script itself — the binary comes from a trusted, auditable source.
+Project homepage: <https://ohmyterm.com>. Mobile builds are distributed
+through the app stores only.
